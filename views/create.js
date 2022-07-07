@@ -12,8 +12,8 @@ const createTemplate = (onSubmit, isFilled) => html` <section class="createCar">
 
   <form @submit=${onSubmit}>
     <div>
-      <label for="new-parlour">Parlour Name</label>
-      <input name="new-parlour" type="text" />
+      <label for="new-ship">Ship Name</label>
+      <input name="new-ship" type="text" />
       <label for="new-city">City</label>
       <input name="new-city" type="text" />
 
