@@ -1,0 +1,33 @@
+
+.createCar p {
+    color: red;
+}
+
+.createCar label {
+    font-size: 20px;
+}
+
+
+.createCar input[type=text], input[type=number] {
+    display: block;
+    width: 30%;
+    padding: 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 30%;
+    color: gray;
+    background-color: honeydew;
+    font-size: 18px;
+}
+
+.createCar [type="submit"] {
+    margin-top: 10px;
+    padding: 16px 20px;
+    cursor: pointer;
+    width: 30%;
+    font-size: 20px;
+    color: black;
+    background-color:  rgba(0, 128, 0, 0.418);
+}

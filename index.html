@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>carsCollection</title>
+    <link rel="stylesheet" href="/style/site.css" />
+    <link rel="stylesheet" href="/style/create.css" />
+    <link rel="stylesheet" href="/style/my-cars.css" />
+    <link rel="stylesheet" href="/style/details.css" />
+    <link rel="stylesheet" href="/style/edit.css" />
+    <link rel="stylesheet" href="/style/login-register.css" />
+
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script checks to see if a redirect is present in the query string,
+      // converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
+    <script src="/src/app.js" type="module"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <a href="/">Certs</a>
+      </h1>
+
+      <nav>
+        <div id="user">
+          <a class="dashboard" href="/allParlours">Dashboard</a>
+          <a id="welcome">Welcome, username!</a>
+          <a href="/create">Create a car</a>
+          <!-- <a href="/my-cars">My cars</a> -->
+          <a id="logoutBtn" href="javascript:void(0)">Logout</a>
+        </div>
+        <div id="guest">
+          <a href="/login">Login</a>
+          <a href="/register">Register</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container"></div>
+
+    <footer class="footer">
+      <p>Made by Hristo Atanasov. Simple Exercise!</p>
+    </footer>
+  </body>
+</html>
