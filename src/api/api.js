@@ -1,5 +1,5 @@
 export const settings = {
-  host: "https://parseapi.back4app.com",
+  host: "",
 };
 
 async function request(url, options) {
