@@ -15,27 +15,27 @@ function createPointer(name, id) {
   };
 }
 
-export async function getParlours() {
+export async function getShips() {
   return Object.values(await api.get(host + "/classes/Ships"));
 }
 
-export async function getParlourById(id) {
+export async function getShipById(id) {
   return await api.get(host + "/classes/Ships/" + id + "?include=owner");
 }
 
-export async function createParlour(parlour) {
+export async function createShip(ship) {
   const userId = sessionStorage.getItem("userId");
 
-  parlour.owner = createPointer("_User", userId);
+  ship.owner = createPointer("_User", userId);
 
-  return await api.post(host + "/classes/Ships", parlour);
+  return await api.post(host + "/classes/Ships", ship);
 }
 
-export async function editParlourById(id, parlour) {
-  return await api.put(host + "/classes/Ships/" + id, parlour);
+export async function editShipById(id, ship) {
+  return await api.put(host + "/classes/Ships/" + id, ship);
 }
 
-export async function deleteParlourById(id) {
+export async function deleteShipById(id) {
   return await api.del(host + "/classes/Ships/" + id);
 }
 
