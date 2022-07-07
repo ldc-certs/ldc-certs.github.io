@@ -5,6 +5,7 @@ export const settings = {
 async function request(url, options) {
   try {
     const response = await fetch(url, options);
+    console.log(response);
 
     if (response.ok === false) {
       const error = await response.json();
