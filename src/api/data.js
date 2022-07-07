@@ -1,6 +1,6 @@
-import * as api from './api.js'
+import * as api from "./api.js";
 
-const host = 'https://parseapi.back4app.com'
+const host = "https://parseapi.back4app.com";
 api.settings.host = host;
 
 export const login = api.login;
@@ -8,35 +8,35 @@ export const register = api.register;
 export const logout = api.logout;
 
 function createPointer(name, id) {
-    return {
-        __type: 'Pointer',
-        className: name,
-        objectId: id
-    };
+  return {
+    __type: "Pointer",
+    className: name,
+    objectId: id,
+  };
 }
 
 export async function getParlours() {
-    return Object.values(await api.get(host + '/classes/Beauty'));
+  return Object.values(await api.get(host + "/classes/Ships"));
 }
 
 export async function getParlourById(id) {
-    return await api.get(host + '/classes/Beauty/' + id + '?include=owner');
+  return await api.get(host + "/classes/Ships/" + id + "?include=owner");
 }
 
 export async function createParlour(parlour) {
-    const userId = sessionStorage.getItem('userId');
+  const userId = sessionStorage.getItem("userId");
 
-    parlour.owner = createPointer('_User', userId);
+  parlour.owner = createPointer("_User", userId);
 
-    return await api.post(host + '/classes/Beauty', parlour);
+  return await api.post(host + "/classes/Ships", parlour);
 }
 
 export async function editParlourById(id, parlour) {
-    return await api.put(host + '/classes/Beauty/' + id, parlour)
+  return await api.put(host + "/classes/Ships/" + id, parlour);
 }
 
 export async function deleteParlourById(id) {
-    return await api.del(host + '/classes/Beauty/' + id);
+  return await api.del(host + "/classes/Ships/" + id);
 }
 
 // export async function getRecipeCount() {
@@ -51,6 +51,3 @@ export async function deleteParlourById(id) {
 //     const query = JSON.stringify({ owner: createPointer('_User', userId) })
 //     return Object.values(await api.get(host + `/classes/Car?where=` + encodeURIComponent(query)));
 // }
-
-
-
