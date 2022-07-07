@@ -52,6 +52,6 @@ export async function registerPage(ctx) {
     await register(username, email, password);
     event.target.reset();
     ctx.setUserNav();
-    ctx.page.redirect("/");
+    ctx.page.redirect("/allShips");
   }
 }
