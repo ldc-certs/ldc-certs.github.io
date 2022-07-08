@@ -27,9 +27,8 @@ function createOptions(method = "get", data) {
   const result = {
     method,
     headers: {
-      "X-Parse-Application-Id": "BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
-      "X-Parse-REST-API-Key": "swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w",
-      "X-Parse-Revocable-Session": 1,
+      "X-Parse-Application-Id": "T7uwdPdqNvl7qGAaGRB0Z0yJDtGuQgPk14OtjIdt",
+      "X-Parse-REST-API-Key": "bqD4OTnpqZIUe9beHfd8230rFA9xNGwzpyxeCK14",
     },
   };
 
