@@ -29,6 +29,7 @@ function createOptions(method = "get", data) {
     headers: {
       "X-Parse-Application-Id": "BCrUQVkk80pCdeImSXoKXL5ZCtyyEZwbN7mAb11f",
       "X-Parse-REST-API-Key": "swrFFIXJlFudtF3HkZPtfybDFRTmS7sPwvGUzQ9w",
+      "X-Parse-Revocable-Session": 1,
     },
   };
 
