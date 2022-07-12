@@ -1,11 +1,12 @@
 import { html } from "https://unpkg.com/lit-html?module";
 
-import { createCert, getShipById } from "../src/api/data.js";
+import { createCert, getShipById, getCertsByShip } from "../src/api/data.js";
 
 const createTemplate = (
   onSubmit,
   isFilled,
-  ship
+  ship,
+  shipCerts
 ) => html` <section class="createCar">
   <div>
     <h1>Create New Certificate</h1>
@@ -34,28 +35,29 @@ const createTemplate = (
   
   <div class="my-collection">
     ${
-      data.length
-        ? html`${data.map(certTemplate)}`
+      shipCerts.length
+        ? html`${shipCerts.map(certTemplate)}`
         : html`<p class="no-cars">No certificates in database.</p>`
     }
   </div>
 </section>
 `;
 
-const certTemplate = (cert) => html`
+const certTemplate = (shipCerts) => html`
   <div>
-    <p>${cert.certName}</p>
+    <p>${shipCerts.certName}</p>
   </div>
   <div>
-    <a class="btn" href="/edit/${cert.objectId}">Edit</a>
-    <a class="btn" href="/delete/${cert.objectId}">Delete</a>
+    <a class="btn" href="/edit/${shipCerts.objectId}">Edit</a>
+    <a class="btn" href="/delete/${shipCerts.objectId}">Delete</a>
   </div>
 `;
 
 export async function createPageCert(ctx) {
   const shipId = ctx.params.id;
   const ship = await getShipById(shipId);
-  ctx.render(createTemplate(onSubmit, false, ship));
+  const shipCerts = await getCertsByShip(shipId);
+  ctx.render(createTemplate(onSubmit, false, ship, shipCerts));
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -69,7 +71,7 @@ export async function createPageCert(ctx) {
     };
 
     if (!cert.certName) {
-      return ctx.render(createTemplate(onSubmit, true, ship));
+      return ctx.render(createTemplate(onSubmit, true, ship, shipCerts));
     }
 
     await createCert(cert, shipId);
