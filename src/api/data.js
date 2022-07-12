@@ -49,7 +49,7 @@ export async function deleteShipById(id) {
 }
 
 export async function getCertsByShip(shipId) {
-  const query = JSON.stringify({ ship: createPointer("_Ship", shipId) });
+  const query = JSON.stringify({ ship: createPointer("_Ships", shipId) });
   return Object.values(
     await api.get(host + `/classes/Certs?where=` + encodeURIComponent(query))
   );
