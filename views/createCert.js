@@ -20,9 +20,9 @@ const createTemplate = (
       <label for="new-cert">Certificate Name</label>
       <input name="new-cert" type="text" />
       <label for="issue-date">Issue Date</label>
-      <input name="issue-date" type="text" />
+      <input name="issue-date" type="date" />
       <label for="expire-date">Expire Date</label>
-      <input name="expire-date" type="text" />
+      <input name="expire-date" type="date" />
       <label for="sednaId">Sedna Id</label>
       <input name="sednaId" type="text" />
 
@@ -35,7 +35,7 @@ const createTemplate = (
   
   <div class="my-collection">
     ${
-      shipCerts.length
+      shipCerts.length > 0
         ? html`${shipCerts.map(certTemplate)}`
         : html`<p class="no-cars">No certificates in database.</p>`
     }
@@ -56,7 +56,7 @@ const certTemplate = (shipCerts) => html`
 export async function createPageCert(ctx) {
   const shipId = ctx.params.id;
   const ship = await getShipById(shipId);
-  const shipCerts = await getCertsByShip(shipId);
+  const [shipCerts] = await getCertsByShip(shipId);
   console.log(shipCerts);
   ctx.render(createTemplate(onSubmit, false, ship, shipCerts));
 
