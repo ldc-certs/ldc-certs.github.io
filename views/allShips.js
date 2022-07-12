@@ -21,6 +21,7 @@ const shipTemplate = (ship) => html`
     <p>${ship.shipName}</p>
   </div>
   <div>
+    <a class="btn" href="/createCert/${ship.objectId}">Add Certificate</a>
     <a class="btn" href="/edit/${ship.objectId}">Edit</a>
     <a class="btn" href="/delete/${ship.objectId}">Delete</a>
   </div>
