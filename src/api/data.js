@@ -20,7 +20,7 @@ export async function getShips() {
 }
 
 export async function getShipById(id) {
-  return await api.get(host + "/classes/Ships/" + id + "?include=owner");
+  return await api.get(host + "/classes/Ships/" + id);
 }
 
 export async function createShip(ship) {
