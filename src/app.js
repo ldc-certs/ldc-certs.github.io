@@ -20,7 +20,7 @@ page("/index.html", decorateContext, homePage);
 page("/login", decorateContext, loginPage);
 page("/register", decorateContext, registerPage);
 page("/createShip", decorateContext, createPage);
-page("/createCert", decorateContext, createPageCert);
+page("/createCert/:id", decorateContext, createPageCert);
 page("/allShips", decorateContext, allShipsPage);
 // page('/details/:id', decorateContext, detailsPage);
 page("/edit/:id", decorateContext, editPage);
