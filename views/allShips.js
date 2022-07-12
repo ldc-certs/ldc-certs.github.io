@@ -19,11 +19,10 @@ const allShipsTemplate = (data, onSubmit) => html` <section class="my-cars">
 const shipTemplate = (ship) => html`
   <div>
     <p>${ship.shipName}</p>
-    <p>${ship.owner}</p>
-    <!-- <img alt="no-pic" src=${ship.img}> -->
   </div>
   <div>
     <a class="btn" href="/edit/${ship.objectId}">Edit</a>
+    <a class="btn" href="/delete/${ship.objectId}">Delete</a>
   </div>
 `;
 
