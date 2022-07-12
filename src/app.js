@@ -4,12 +4,12 @@ import page from "https://cdn.rawgit.com/visionmedia/page.js/master/page.mjs";
 import { homePage } from "../views/home.js";
 import { loginPage } from "../views/login.js";
 import { registerPage } from "../views/register.js";
-import { createPage } from "../views/create.js";
+import { createPage } from "../views/createShip.js";
 import { logout as apiLogout } from "../src/api/data.js";
 import { allShipsPage } from "../views/allShips.js";
 // import { detailsPage } from '../views/details.js';
 import { editPage } from "../views/edit.js";
-// import { myCarsPage } from '../views/mycars.js';
+import { deletePage } from "../views/delete.js";
 
 const container = document.querySelector(".container");
 document.getElementById("logoutBtn").addEventListener("click", logout);
@@ -22,7 +22,7 @@ page("/create", decorateContext, createPage);
 page("/allShips", decorateContext, allShipsPage);
 // page('/details/:id', decorateContext, detailsPage);
 page("/edit/:id", decorateContext, editPage);
-// page('/my-cars', decorateContext, myCarsPage);
+page("/delete/:id", decorateContext, deletePage);
 
 setUserNav();
 page.start();
