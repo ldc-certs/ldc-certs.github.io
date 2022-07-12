@@ -31,6 +31,15 @@ export async function createShip(ship) {
   return await api.post(host + "/classes/Ships", ship);
 }
 
+export async function createCert(cert, shipId) {
+  const userId = sessionStorage.getItem("userId");
+
+  cert.owner = createPointer("_User", userId);
+  cert.ship = createPointer("_Ships", shipId);
+
+  return await api.post(host + "/classes/Certs", cert);
+}
+
 export async function editShipById(id, ship) {
   return await api.put(host + "/classes/Ships/" + id, ship);
 }
@@ -39,15 +48,27 @@ export async function deleteShipById(id) {
   return await api.del(host + "/classes/Ships/" + id);
 }
 
-// export async function getRecipeCount() {
-//     return api.get(host + '/data/recipes?count');
-// }
+export async function getCertsByShip(shipId) {
+  const query = JSON.stringify({ shipId: createPointer("_Ship", shipId) });
+  return Object.values(
+    await api.get(host + `/classes/Certs?where=` + encodeURIComponent(query))
+  );
+}
 
-// export async function getRecent() {
-//     return api.get(host + '/data/recipes?select=_id%2Cname%2Cimg&sortBy=_createdOn%20desc&pageSize=3');
-// }
-
-// export async function getCarsByOwner(userId) {
-//     const query = JSON.stringify({ owner: createPointer('_User', userId) })
-//     return Object.values(await api.get(host + `/classes/Car?where=` + encodeURIComponent(query)));
-// }
+export async function getShipsByName(criteria) {
+  const query = JSON.stringify({
+    $or: [
+      { shipName: { $regex: criteria, $options: "i" } },
+      // { city: { $regex: criteria, $options: "i" } },
+      // { machine: { $regex: criteria, $options: "i" } },
+      // { machineSN: { $regex: criteria, $options: "i" } },
+      // { applicator: { $regex: criteria, $options: "i" } },
+      // { applicatorSN: { $regex: criteria, $options: "i" } },
+      // { description: { $regex: criteria, $options: "i" } },
+    ],
+  });
+  console.log(query);
+  return Object.values(
+    await api.get(host + `/classes/Ships?where=` + encodeURIComponent(query))
+  );
+}
