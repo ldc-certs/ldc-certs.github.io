@@ -57,6 +57,7 @@ export async function createPageCert(ctx) {
   const shipId = ctx.params.id;
   const ship = await getShipById(shipId);
   const shipCerts = await getCertsByShip(shipId);
+  console.log(shipCerts);
   ctx.render(createTemplate(onSubmit, false, ship, shipCerts));
 
   async function onSubmit(event) {
