@@ -48,6 +48,6 @@ export async function editPageCert(ctx) {
 
     await editCertById(certId, data);
     event.target.reset();
-    ctx.page.redirect(`/createCert/` + cert.ship);
+    ctx.page.redirect(`/createCert/` + cert.ship.objectId);
   }
 }

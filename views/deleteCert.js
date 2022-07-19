@@ -8,7 +8,7 @@ export async function deletePageCert(ctx) {
 
   const certId = ctx.params.id;
   const cert = await getCertById(certId);
-  const shipId = cert.ship;
+  const shipId = cert.ship.objectId;
   const confirmed = confirm("Are you sure?");
   if (confirmed) {
     await deleteCertById(certId);
