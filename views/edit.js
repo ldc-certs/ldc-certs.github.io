@@ -14,9 +14,6 @@ const editTemplate = (ship, onSubmit, isFilled) => html` <section
     <div>
       <label for="new-ship">Ship Name</label>
       <input name="new-ship" type="text" .value=${ship.shipName} />
-      <label for="new-city">City</label>
-      <input name="new-city" type="text" .value=${ship.city} />
-      <label for="new-machine">Machine</label>
 
       <label for="new-description">Description</label>
       <textarea name="new-description" .value=${ship.description}></textarea>
@@ -36,6 +33,7 @@ export async function editPage(ctx) {
     const formData = new FormData(event.target);
     const data = {
       shipName: formData.get("new-ship"),
+      description: formData.get("new-description"),
     };
 
     if (!data.shipName) {

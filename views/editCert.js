@@ -19,7 +19,7 @@ const editTemplate = (cert, onSubmit, isFilled) => html` <section
       <label for="expire-date">Expire Date</label>
       <input name="expire-date" type="date" .value=${cert.expireDate} />
       <label for="sednaId">Sedna Id</label>
-      <input for="sednaId" type="text" .value=${cert.sednaId} />
+      <input name="sednaId" type="text" .value=${cert.sednaId} />
 
       <input type="submit" value="Update" />
     </div>
