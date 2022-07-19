@@ -1,7 +1,6 @@
 import { html } from "https://unpkg.com/lit-html?module";
 
 const homeTemplate = () => html` <section class="home">
-  <h1>Welcome to LDC Certs!</h1>
   <p>List of vsls certificates! Create, modify, delete!</p>
   <img src="/images/home.png" alt="no pic" />
   <p>

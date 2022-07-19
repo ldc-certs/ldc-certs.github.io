@@ -31,6 +31,7 @@ export async function createPage(ctx) {
     const formData = new FormData(event.target);
     const ship = {
       shipName: formData.get("new-ship"),
+      description: formData.get("new-description"),
     };
 
     if (!ship.shipName) {
