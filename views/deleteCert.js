@@ -1,4 +1,4 @@
-import { deleteCertById } from "../src/api/data.js";
+import { deleteCertById, getCertById } from "../src/api/data.js";
 
 export async function deletePageCert(ctx) {
   const token = sessionStorage.getItem("authToken");
@@ -7,9 +7,11 @@ export async function deletePageCert(ctx) {
   }
 
   const certId = ctx.params.id;
+  const cert = await getCertById(certId);
+  const shipId = cert.ship;
   const confirmed = confirm("Are you sure?");
   if (confirmed) {
     await deleteCertById(certId);
-    ctx.page.redirect("/createCert/" + certId.ship);
+    ctx.page.redirect("/createCert/" + shipId);
   }
 }
