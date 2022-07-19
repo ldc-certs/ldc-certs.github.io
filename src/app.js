@@ -11,6 +11,8 @@ import { allShipsPage } from "../views/allShips.js";
 // import { detailsPage } from '../views/details.js';
 import { editPage } from "../views/edit.js";
 import { deletePage } from "../views/delete.js";
+import { editPageCert } from "../views/editCert.js";
+import { deletePageCert } from "../views/deleteCert.js";
 
 const container = document.querySelector(".container");
 document.getElementById("logoutBtn").addEventListener("click", logout);
@@ -25,6 +27,8 @@ page("/allShips", decorateContext, allShipsPage);
 // page('/details/:id', decorateContext, detailsPage);
 page("/edit/:id", decorateContext, editPage);
 page("/delete/:id", decorateContext, deletePage);
+page("/editCert/:id", decorateContext, editPageCert);
+page("/deleteCert/:id", decorateContext, deletePageCert);
 
 setUserNav();
 page.start();

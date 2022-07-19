@@ -23,6 +23,10 @@ export async function getShipById(id) {
   return await api.get(host + "/classes/Ships/" + id);
 }
 
+export async function getCertById(certId) {
+  return await api.get(host + "/classes/Certs/" + certId);
+}
+
 export async function createShip(ship) {
   const userId = sessionStorage.getItem("userId");
 
@@ -44,8 +48,16 @@ export async function editShipById(id, ship) {
   return await api.put(host + "/classes/Ships/" + id, ship);
 }
 
+export async function editCertById(certId, cert) {
+  return await api.put(host + "/classes/Certs/" + certId, cert);
+}
+
 export async function deleteShipById(id) {
   return await api.del(host + "/classes/Ships/" + id);
+}
+
+export async function deleteCertById(certId) {
+  return await api.delete(host + "/classes/Certs" + certId);
 }
 
 export async function getCertsByShip(shipId) {

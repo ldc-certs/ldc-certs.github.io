@@ -1,6 +1,6 @@
 import { html } from "https://unpkg.com/lit-html?module";
 
-import { getShips } from "../src/api/data.js";
+import { getShips, getShipsByName } from "../src/api/data.js";
 
 const allShipsTemplate = (data, onSubmit) => html` <section class="my-cars">
   <h1>All Ships</h1>

@@ -37,7 +37,7 @@ const createTemplate = (
     ${
       shipCerts.length > 0
         ? html`${shipCerts.map(certTemplate)}`
-        : html`<p class="no-cars">No certificates in database.</p>`
+        : html`<p class="no-cars">No certificates iSn database.</p>`
     }
   </div>
 </section>
@@ -48,8 +48,8 @@ const certTemplate = (shipCerts) => html`
     <p>${shipCerts.certName}</p>
   </div>
   <div>
-    <a class="btn" href="/edit/${shipCerts.objectId}">Edit</a>
-    <a class="btn" href="/delete/${shipCerts.objectId}">Delete</a>
+    <a class="btn" href="/editCert/${shipCerts.objectId}">Edit</a>
+    <a class="btn" href="/deleteCert/${shipCerts.objectId}">Delete</a>
   </div>
 `;
 
