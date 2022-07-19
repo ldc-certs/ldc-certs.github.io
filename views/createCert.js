@@ -77,6 +77,6 @@ export async function createPageCert(ctx) {
 
     await createCert(cert, shipId);
     event.target.reset();
-    ctx.page.redirect("/allShips");
+    ctx.page.redirect("/createCert/" + shipId);
   }
 }
