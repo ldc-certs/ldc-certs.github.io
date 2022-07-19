@@ -57,7 +57,7 @@ export async function deleteShipById(id) {
 }
 
 export async function deleteCertById(certId) {
-  return await api.del(host + "/classes/Certs" + certId);
+  return await api.del(host + "/classes/Certs/" + certId);
 }
 
 export async function getCertsByShip(shipId) {
