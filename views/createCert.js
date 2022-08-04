@@ -28,7 +28,17 @@ const createTemplate = (onSubmit, isFilled, ship, shipCerts) => html`
   </section>
 
   <section class="ships">
-    <h1>All ${ship.shipName} Certs</h1>
+    <h1>${ship.shipName} Certs</h1>
+
+    <div class="my-collection">
+      <div>
+        <div class="column-cert-name">Cert Name</div>
+        <div class="column-cert-valid">Issue Date</div>
+        <div class="column-cert-expire">Expire Date</div>
+        <div class="column-cert-sednaId">Sedna ID</div>
+        <div class="column-cert-opt">Options</div>
+      </div>
+    </div>
 
     <div class="my-collection">
       ${shipCerts.length > 0
@@ -39,21 +49,24 @@ const createTemplate = (onSubmit, isFilled, ship, shipCerts) => html`
 `;
 
 const certTemplate = (shipCerts) => html`
-  <div class="ship-name">
+<div>
+
+  <div class="cert-name">
     ${shipCerts.certName}
   </div>
-  <div class="cert-data">
+  <div class="cert-valid">
     ${shipCerts.issueDate}
   </div>
-  <div class="cert-data">
+  <div class="cert-expire">
     ${shipCerts.expireDate}
   </div>
-  <div class="cert-data">
+  <div class="cert-sednaId">
     ${shipCerts.sednaId}
   </div>
-  <div>
+  <div class="cert-opt">
     <a class="btn" href="/editCert/${shipCerts.objectId}">Edit</a>
     <a class="btn" href="/deleteCert/${shipCerts.objectId}">Delete</a>
+  </div>
   </div>
   </section>
 `;
@@ -62,6 +75,103 @@ export async function createPageCert(ctx) {
   const shipId = ctx.params.id;
   const ship = await getShipById(shipId);
   const [shipCerts] = await getCertsByShip(shipId);
+
+  if (shipCerts.length > 0) {
+    for (let i = 0; i < shipCerts.length; i++) {
+      let issue = shipCerts[i].issueDate;
+      let [issueYear, issueMonth, issueDay] = issue.split("-");
+      switch (issueMonth) {
+        case "01":
+          issueMonth = "Jan";
+          break;
+        case "02":
+          issueMonth = "Feb";
+          break;
+        case "03":
+          issueMonth = "Mar";
+          break;
+        case "04":
+          issueMonth = "Apr";
+          break;
+        case "05":
+          issueMonth = "May";
+          break;
+        case "06":
+          issueMonth = "Jun";
+          break;
+        case "07":
+          issueMonth = "Jul";
+          break;
+        case "08":
+          issueMonth = "Aug";
+          break;
+        case "09":
+          issueMonth = "Sep";
+          break;
+        case "10":
+          issueMonth = "Oct";
+          break;
+        case "11":
+          issueMonth = "Nov";
+          break;
+        case "12":
+          issueMonth = "Dec";
+          break;
+      }
+
+      issue = `${issueDay} ${issueMonth} ${issueYear}`;
+
+      shipCerts[i].issueDate = issue;
+    }
+
+    for (let i = 0; i < shipCerts.length; i++) {
+      let expire = shipCerts[i].expireDate;
+      let [expireYear, expireMonth, expireDay] = expire.split("-");
+      switch (expireMonth) {
+        case "01":
+          expireMonth = "Jan";
+          break;
+        case "02":
+          expireMonth = "Feb";
+          break;
+        case "03":
+          expireMonth = "Mar";
+          break;
+        case "04":
+          expireMonth = "Apr";
+          break;
+        case "05":
+          expireMonth = "May";
+          break;
+        case "06":
+          expireMonth = "Jun";
+          break;
+        case "07":
+          expireMonth = "Jul";
+          break;
+        case "08":
+          expireMonth = "Aug";
+          break;
+        case "09":
+          expireMonth = "Sep";
+          break;
+        case "10":
+          expireMonth = "Oct";
+          break;
+        case "11":
+          expireMonth = "Nov";
+          break;
+        case "12":
+          expireMonth = "Dec";
+          break;
+      }
+
+      expire = `${expireDay} ${expireMonth} ${expireYear}`;
+
+      shipCerts[i].expireDate = expire;
+    }
+  }
+
   ctx.render(createTemplate(onSubmit, false, ship, shipCerts));
 
   async function onSubmit(event) {

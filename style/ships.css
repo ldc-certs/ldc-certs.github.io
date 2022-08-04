@@ -18,18 +18,45 @@
   flex-direction: row;
   justify-content: flex-end;
   width: 50%;
-  background-color: rgb(212, 212, 212);
+  background-color: rgb(231, 231, 231);
   border-color: white;
   border-style: solid;
   border-top: none;
   border-left: none;
-  border-right: none;
+  /* border-right: none; */
   height: 30px;
+}
+
+.my-collection .column-name {
+  justify-content: center;
+  width: 20%;
+  padding-left: 8px;
+  padding-right: 8px;
+  line-height: 30px;
+  background-color: rgba(133, 172, 71, 0.418);
+}
+
+.my-collection .column-desc {
+  justify-content: center;
+  width: 50%;
+  padding-left: 8px;
+  padding-right: 8px;
+  line-height: 30px;
+  background-color: rgba(133, 172, 71, 0.418);
+}
+
+.my-collection .column-opt {
+  justify-content: center;
+  width: 30%;
+  padding-left: 8px;
+  padding-right: 8px;
+  line-height: 30px;
+  background-color: rgba(133, 172, 71, 0.418);
 }
 
 .my-collection .ship-name {
   justify-content: flex-start;
-  width: 200px;
+  width: 20%;
   padding-left: 8px;
   padding-right: 8px;
   font-weight: 850;
@@ -39,10 +66,18 @@
 .my-collection .ship-description {
   line-height: 30px;
   justify-content: flex-start;
-  width: 500px;
+  width: 50%;
   padding-left: 8px;
   padding-right: 8px;
   font-size: 15px;
+}
+
+.my-collection .ship-opt {
+  justify-content: center;
+  background-color: white;
+  padding-right: 8px;
+  padding-left: 8px;
+  width: 30%;
 }
 
 .my-collection a {
@@ -58,13 +93,90 @@
   background-color: rgb(212, 212, 212);
 }
 
-.my-collection .cert-data {
-  line-height: 30px;
-  justify-content: flex-start;
-  width: auto;
+.my-collection .column-cert-name {
   padding-left: 8px;
   padding-right: 8px;
-  font-size: 15px;
+  justify-content: center;
+  width: 40%;
+  line-height: 30px;
+  background-color: rgba(133, 172, 71, 0.418);
+}
+
+.my-collection .column-cert-valid {
+  padding-left: 8px;
+  padding-right: 8px;
+  justify-content: center;
+  width: 15%;
+  line-height: 30px;
+  background-color: rgba(133, 172, 71, 0.418);
+}
+
+.my-collection .column-cert-expire {
+  padding-left: 8px;
+  padding-right: 8px;
+  justify-content: center;
+  width: 15%;
+  line-height: 30px;
+  background-color: rgba(133, 172, 71, 0.418);
+}
+
+.my-collection .column-cert-sednaId {
+  padding-left: 8px;
+  padding-right: 8px;
+  justify-content: center;
+  width: 15%;
+  line-height: 30px;
+  background-color: rgba(133, 172, 71, 0.418);
+}
+
+.my-collection .column-cert-opt {
+  padding-left: 8px;
+  padding-right: 8px;
+  justify-content: center;
+  width: 15%;
+  line-height: 30px;
+  background-color: rgba(133, 172, 71, 0.418);
+}
+
+.my-collection .cert-name {
+  padding-left: 8px;
+  padding-right: 8px;
+  justify-content: flex-start;
+  width: 40%;
+  line-height: 30px;
+  font-weight: 750;
+}
+
+.my-collection .cert-valid {
+  padding-left: 8px;
+  padding-right: 8px;
+  line-height: 30px;
+  justify-content: flex-start;
+  width: 15%;
+}
+
+.my-collection .cert-expire {
+  padding-left: 8px;
+  padding-right: 8px;
+  line-height: 30px;
+  justify-content: flex-start;
+  width: 15%;
+}
+
+.my-collection .cert-sednaId {
+  padding-left: 8px;
+  padding-right: 8px;
+  line-height: 30px;
+  justify-content: flex-start;
+  width: 15%;
+}
+
+.my-collection .cert-opt {
+  padding-left: 8px;
+  padding-right: 8px;
+  justify-content: center;
+  background-color: white;
+  width: 15%;
 }
 
 /* .my-collection .btn-add {

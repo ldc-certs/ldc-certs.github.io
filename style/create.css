@@ -11,15 +11,12 @@ textarea,
 input[type="date"] {
   display: block;
   width: 30%;
-  padding: 10px 10px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
   width: 30%;
   color: gray;
   background-color: honeydew;
-  font-size: 18px;
+  font-size: 25px;
 }
 
 .createShip [type="submit"] {

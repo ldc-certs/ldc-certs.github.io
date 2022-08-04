@@ -10,6 +10,13 @@ const allShipsTemplate = (data, onSubmit) => html` <section class="ships">
   </form>
 
   <div class="my-collection">
+    <div>
+      <div class="column-name">Ship Name</div>
+      <div class="column-desc">Description</div>
+      <div class="column-opt">Options</div>
+    </div>
+  </div>
+  <div class="my-collection">
     ${data.length
       ? html`${data.map(shipTemplate)}`
       : html`<p class="no-ships">No ships in database.</p>`}
@@ -21,8 +28,8 @@ const shipTemplate = (ship) => html`
     <div class="ship-name">${ship.shipName}</div>
     <div class="ship-description">${ship.description}</div>
 
-    <div>
-      <a class="btn-add" href="/createCert/${ship.objectId}">Add Certificate</a>
+    <div class="ship-opt">
+      <a class="btn-add" href="/createCert/${ship.objectId}">Certificates</a>
 
       <a class="btn-edit" href="/edit/${ship.objectId}">Edit</a>
 
