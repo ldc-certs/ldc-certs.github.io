@@ -2,7 +2,9 @@ import { html } from "https://unpkg.com/lit-html?module";
 
 import { createShip } from "../src/api/data.js";
 
-const createTemplate = (onSubmit, isFilled) => html` <section class="createCar">
+const createTemplate = (onSubmit, isFilled) => html` <section
+  class="createShip"
+>
   <div>
     <h1>Create New Ship</h1>
     ${isFilled
@@ -11,7 +13,7 @@ const createTemplate = (onSubmit, isFilled) => html` <section class="createCar">
   </div>
 
   <form @submit=${onSubmit}>
-    <div>
+    <div class="my-collection">
       <label for="new-ship">Ship Name</label>
       <input name="new-ship" type="text" />
 

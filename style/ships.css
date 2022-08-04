@@ -1,34 +1,24 @@
-/* .my-cars h1 {
-  padding: 40px;
-}
-
-.list {
-  padding: 40px;
-  padding-top: 0;
-}
-
-.my-cars img {
-  width: 300px;
-  height: auto;
-} */
-
 .my-collection .no-ships {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
   background-color: rgb(248, 234, 215);
   padding: 10px;
-  text-align: left;
+  text-align: center;
   width: 300px;
   font-size: 25px;
+}
+
+.my-collection {
+  display: block;
 }
 
 .my-collection div {
   display: inline-flex;
   flex-direction: row;
-  /* width: 50%; */
+  justify-content: flex-end;
+  width: 50%;
   background-color: rgb(212, 212, 212);
-  text-orientation: center;
   border-color: white;
   border-style: solid;
   border-top: none;
@@ -38,21 +28,46 @@
 }
 
 .my-collection .ship-name {
-  width: 100px;
+  justify-content: flex-start;
+  width: 200px;
   padding-left: 8px;
-  padding-right: 50px;
+  padding-right: 8px;
   font-weight: 850;
   font-size: 20px;
 }
 
 .my-collection .ship-description {
-  width: 100px;
+  line-height: 30px;
+  justify-content: flex-start;
+  width: 500px;
   padding-left: 8px;
-  padding-right: 50px;
+  padding-right: 8px;
   font-size: 15px;
 }
 
-.my-collection .btn-add {
+.my-collection a {
+  border-style: solid;
+  border-color: rgba(0, 128, 0, 0.418);
+  text-decoration: none;
+  background-color: rgba(133, 172, 71, 0.418);
+  color: black;
+  padding: 2px;
+}
+
+.my-collection a:hover {
+  background-color: rgb(212, 212, 212);
+}
+
+.my-collection .cert-data {
+  line-height: 30px;
+  justify-content: flex-start;
+  width: auto;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 15px;
+}
+
+/* .my-collection .btn-add {
   border-style: solid;
   border-color: rgba(0, 128, 0, 0.418);
   text-decoration: none;
@@ -77,9 +92,9 @@
   background-color: rgba(133, 172, 71, 0.418);
   color: black;
   padding: 2px;
-}
+} */
 
-.btn-add:hover {
+/* .btn-add:hover {
   background-color: rgb(212, 212, 212);
 }
 
@@ -89,4 +104,4 @@
 
 .btn-delete:hover {
   background-color: rgb(212, 212, 212);
-}
+} */

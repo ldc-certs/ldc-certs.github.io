@@ -2,55 +2,60 @@ import { html } from "https://unpkg.com/lit-html?module";
 
 import { createCert, getShipById, getCertsByShip } from "../src/api/data.js";
 
-const createTemplate = (
-  onSubmit,
-  isFilled,
-  ship,
-  shipCerts
-) => html` <section class="createCar">
-  <div>
-    <h1>Create New Certificate</h1>
-    ${
-      isFilled ? html`<p style="color: red">Please fill in all fields!</p>` : ""
-    }
-  </div>
-
-  <form @submit=${onSubmit}>
+const createTemplate = (onSubmit, isFilled, ship, shipCerts) => html`
+  <section class="createShip">
     <div>
-      <label for="new-cert">Certificate Name</label>
-      <input name="new-cert" type="text" />
-      <label for="issue-date">Issue Date</label>
-      <input name="issue-date" type="date" />
-      <label for="expire-date">Expire Date</label>
-      <input name="expire-date" type="date" />
-      <label for="sednaId">Sedna Id</label>
-      <input name="sednaId" type="text" />
-
-      <input type="submit" value="Create" />
+      <h1>Create New Certificate</h1>
+      ${isFilled
+        ? html`<p style="color: red">Please fill in all fields!</p>`
+        : ""}
     </div>
-  </form>
-</section>
 
-<h1>All ${ship.shipName} Certs</h1>
-  
-  <div class="my-collection">
-    ${
-      shipCerts.length > 0
+    <form @submit=${onSubmit}>
+      <div>
+        <label for="new-cert">Certificate Name</label>
+        <input name="new-cert" type="text" />
+        <label for="issue-date">Issue Date</label>
+        <input name="issue-date" type="date" />
+        <label for="expire-date">Expire Date</label>
+        <input name="expire-date" type="date" />
+        <label for="sednaId">Sedna Id</label>
+        <input name="sednaId" type="text" />
+
+        <input type="submit" value="Create" />
+      </div>
+    </form>
+  </section>
+
+  <section class="ships">
+    <h1>All ${ship.shipName} Certs</h1>
+
+    <div class="my-collection">
+      ${shipCerts.length > 0
         ? html`${shipCerts.map(certTemplate)}`
-        : html`<p class="no-cars">No certificates iSn database.</p>`
-    }
-  </div>
-</section>
+        : html`<p class="no-ships">No certificates in database.</p>`}
+    </div>
+  </section>
 `;
 
 const certTemplate = (shipCerts) => html`
-  <div>
-    <p>${shipCerts.certName}</p>
+  <div class="ship-name">
+    ${shipCerts.certName}
+  </div>
+  <div class="cert-data">
+    ${shipCerts.issueDate}
+  </div>
+  <div class="cert-data">
+    ${shipCerts.expireDate}
+  </div>
+  <div class="cert-data">
+    ${shipCerts.sednaId}
   </div>
   <div>
     <a class="btn" href="/editCert/${shipCerts.objectId}">Edit</a>
     <a class="btn" href="/deleteCert/${shipCerts.objectId}">Delete</a>
   </div>
+  </section>
 `;
 
 export async function createPageCert(ctx) {

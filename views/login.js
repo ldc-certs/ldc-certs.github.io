@@ -2,7 +2,7 @@ import { html } from "https://unpkg.com/lit-html?module";
 
 import { login } from "../src/api/data.js";
 
-const loginTemplate = (onSubmit, isFilled) => html` <section>
+const loginTemplate = (onSubmit, isFilled) => html` <section class="logreg">
   <div>
     <h1>Login</h1>
     ${isFilled
