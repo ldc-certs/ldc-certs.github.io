@@ -3,7 +3,7 @@ import { html } from "https://unpkg.com/lit-html?module";
 import { editCertById, getCertById } from "../src/api/data.js";
 
 const editTemplate = (cert, onSubmit, isFilled) => html` <section
-  class="createCar"
+  class="createShip"
 >
   <div>
     <h1>Edit Ship</h1>
