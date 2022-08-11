@@ -3,7 +3,7 @@ import { html } from "https://unpkg.com/lit-html?module";
 import { register } from "../src/api/data.js";
 
 const registerTemplate = (onSubmit, isFilled, isMatching) => html` <section
-  class="login"
+  class="logreg"
 >
   <div>
     <h1>Register</h1>

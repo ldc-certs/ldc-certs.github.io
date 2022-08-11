@@ -61,7 +61,7 @@ const certTemplate = (shipCerts) => html`
     ${shipCerts.expireDate}
   </div>
   <div class="cert-sednaId">
-    ${shipCerts.sednaId}
+  <a class="btn" href="${shipCerts.sednaId}">Go to Cert</a>
   </div>
   <div class="cert-opt">
     <a class="btn" href="/editCert/${shipCerts.objectId}">Edit</a>
