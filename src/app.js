@@ -1,4 +1,4 @@
-import { render } from "https://esm.run/lit-html@1";
+import { html, render } from "https://esm.run/lit-html@1";
 import page from "https://cdn.rawgit.com/visionmedia/page.js/master/page.mjs";
 
 import { homePage } from "../views/home.js";
