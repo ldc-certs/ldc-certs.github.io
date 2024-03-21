@@ -1,4 +1,4 @@
-import { html } from "https://unpkg.com/lit-html?module";
+import { html } from "https://esm.run/lit-html@1";
 
 const homeTemplate = () => html` <section class="home">
   <p>List of vsls certificates! Create, modify, delete!</p>
